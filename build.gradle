@@ -1,26 +1,10 @@
-plugins {
-  id "com.google.protobuf" version "0.8.12"
-}
-
 apply plugin: 'scala'
-apply plugin: 'java-library'
 
 repositories {
   mavenCentral()
 }
 
 dependencies {
-  api("org.scala-lang:scala-library:2.12.11")
-  api("com.google.protobuf:protobuf-java:3.12.4")
-}
-
-protobuf {
-  protoc {
-    artifact = 'com.google.protobuf:protoc:3.12.4'
-  }
-  generateProtoTasks {
-    all().each { task ->
-      task.doFirst { delete outputBaseDir }
-    }
-  }
+  implementation("org.scala-lang:scala-library:2.12.11")
+  implementation("com.google.protobuf:protobuf-java:3.12.4")
 }
